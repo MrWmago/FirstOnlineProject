@@ -18,6 +18,7 @@ import com.example.xw.firstonlineproject.view.CircleImageView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.Unbinder;
 
 /**
  * Created by xw on 2016/11/21.
@@ -37,6 +38,7 @@ public class MeFragment extends Fragment {
     TextView tvUserUpgoods;
     private View view;
     private ActivityUtils activityUtils;
+    private Unbinder unbinder;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -49,10 +51,16 @@ public class MeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         if (view == null) {
             view = inflater.inflate(R.layout.fragment_me, container, false);
-            ButterKnife.bind(this, view);
+            unbinder = ButterKnife.bind(this, view);
         }
         ButterKnife.bind(this, view);
         return view;
+    }
+
+    @Override
+    public void onDestroy() {
+        unbinder.unbind();
+        super.onDestroy();
     }
 
     @Override

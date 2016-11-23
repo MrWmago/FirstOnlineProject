@@ -7,4 +7,12 @@
     <string name="user_name">用户名</string>
     <string name="title_register">注册</string>
     <string name="pwd_again">确认密码</string>
+    <string name="username_pwd_rule">用户名或密码</string>
+    <string name="OK">确定</string>
+
+    <string name="password_rules">密码以数字或字母开头，长度在6~18之间，只能包含字符、数字和下划线</string>
+    <string name="username_rules">账号为中文，字母或数字，长度为4~20，一个中文算2个长度</string>
+    <string name="password_different_again">两次输入的密码不同！</string>
+
+
 </resources>
