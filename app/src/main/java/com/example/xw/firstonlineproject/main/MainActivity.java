@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.xw.firstonlineproject.R;
 import com.example.xw.firstonlineproject.commons.ActivityUtils;
+import com.example.xw.firstonlineproject.commons.CachePreferences;
 import com.example.xw.firstonlineproject.main.me.MeFragment;
 import com.example.xw.firstonlineproject.main.shop.ShopFragment;
 
@@ -56,9 +57,12 @@ public class MainActivity extends AppCompatActivity {
     private void init() {
         //刚进来默认选择市场
         menu[0].setSelected(true);//将第一个textView设置为选中状态，从而有选中状态的效果
-        // TODO: 2016/11/21 用户是否登陆，从而选择不同的适配器
-        //这里先设置未登陆的适配器
-        viewpager.setAdapter(unLoginAdapter);
+        // 判断用户是否登陆，从而选择不同的适配器
+        if(CachePreferences.getUser().getName()==null)
+            viewpager.setAdapter(unLoginAdapter);
+        else
+            viewpager.setAdapter(loginAdapter);
+
         viewpager.setCurrentItem(0);//默认选择第一个页面
 
         //viewpager添加滑动事件
@@ -105,6 +109,30 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+    private FragmentStatePagerAdapter loginAdapter = new FragmentStatePagerAdapter(getSupportFragmentManager()) {
+        @Override
+        public Fragment getItem(int position) {
+            switch (position) {
+                case 0:
+                    return new ShopFragment();
+                case 1:
+                    // TODO: 2016/11/23 环信消息fragment
+                    return new UnloginFragment();
+                case 2:
+                    // TODO: 2016/11/23 环信的通讯录fragment
+                    return new UnloginFragment();
+                case 3:
+                    return new MeFragment();
+            }
+            return null;
+        }
+
+        @Override
+        public int getCount() {
+            return menu.length;
+        }
+    };
+
     @OnClick({R.id.tv_shop,R.id.tv_message,R.id.tv_mail_list,R.id.tv_me})
     public void onClick(TextView view){
         for (int i = 0;i<menu.length;i++){//初始化
@@ -133,6 +161,16 @@ public class MainActivity extends AppCompatActivity {
                 }
             }, 2000);
         } else super.onBackPressed();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        if(CachePreferences.getUser().getName() != null) viewpager.setCurrentItem(0);
+        else {
+            viewpager.setAdapter(unLoginAdapter);//选择未登录适配器
+            viewpager.setCurrentItem(3);//跳转到我的页面
+        }
     }
 
     @Override

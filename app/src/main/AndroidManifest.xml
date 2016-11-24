@@ -18,8 +18,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".main.MainActivity"/>
-        <activity android:name=".user.LoginActivity"/>
-        <activity android:name=".user.RegisterActivity"/>
+        <activity android:name=".user.login.LoginActivity"/>
+        <activity android:name=".user.register.RegisterActivity"/>
+        <activity android:name=".main.me.userinfo.UserInfoActivity"/>
+        <activity android:name=".main.me.userinfo.NickNameActivity"/>
     </application>
 
 </manifest>

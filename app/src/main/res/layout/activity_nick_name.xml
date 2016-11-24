@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/nick_name_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:title="昵称修改"
+        app:titleTextColor="@color/white"/>
+
+    <EditText
+        android:id="@+id/et_nick_name_change"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="7dp"
+        android:textSize="20sp"
+        android:background="@color/white"
+        android:hint="昵称"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="13sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp"
+        android:text="1.通过昵称添加好友,没有昵称无法添加好友"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="13sp"
+        android:layout_marginLeft="5dp"
+        android:text="2.此昵称非用户名,在联系人和市场等场景显示"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="13sp"
+        android:layout_marginTop="13dp"
+        android:layout_marginLeft="5dp"
+        android:text="昵称为中文，字母或数字，长度为1-12，一个中文算两个字符"/>
+    <Button
+        android:id="@+id/btn_nick_name"
+        style="@style/AppTheme.Button.EasyShop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center_horizontal"
+        android:text="确定"/>
+
+</LinearLayout>

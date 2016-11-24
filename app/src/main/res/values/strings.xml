@@ -14,5 +14,9 @@
     <string name="username_rules">账号为中文，字母或数字，长度为4~20，一个中文算2个长度</string>
     <string name="password_different_again">两次输入的密码不同！</string>
 
+    <string name="me_user_info">个人信息</string>
+    <string name="me_user_goods">我的商品</string>
+    <string name="me_goods_upload">上传商品</string>
+
 
 </resources>

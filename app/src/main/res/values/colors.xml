@@ -8,4 +8,5 @@
     <color name="bg_page">#ebebeb</color>
     <color name="background">#fafafa</color>
     <color name="text_hint">#999999</color>
+    <color name="black">#000000</color>
 </resources>
